@@ -21,6 +21,7 @@ packages=(
     "@openai/codex"
     "@tencent-ai/codebuddy-code"
     "@qwen-code/qwen-code"
+    opencode-ai
 )
 
 echo "即将检查/升级以下工具："
