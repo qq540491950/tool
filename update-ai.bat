@@ -18,7 +18,7 @@ if errorlevel 1 (
 )
 
 :: 定义要安装的包列表
-set "packages=@google/gemini-cli @iflow-ai/iflow-cli @openai/codex @tencent-ai/codebuddy-code @qwen-code/qwen-code opencode-ai"
+set "packages=@google/gemini-cli @openai/codex @tencent-ai/codebuddy-code @qwen-code/qwen-code opencode-ai"
 
 echo 即将检查/升级以下工具：
 for %%p in (%packages%) do echo   - %%p

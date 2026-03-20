@@ -17,7 +17,6 @@ fi
 # 定义要安装的包列表
 packages=(
     "@google/gemini-cli"
-    "@iflow-ai/iflow-cli"
     "@openai/codex"
     "@tencent-ai/codebuddy-code"
     "@qwen-code/qwen-code"
