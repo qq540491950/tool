@@ -1,0 +1,14 @@
+.omc/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# OS/editor temp files
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
