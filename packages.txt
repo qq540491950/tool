@@ -1,0 +1,6 @@
+@google/gemini-cli
+@openai/codex
+@tencent-ai/codebuddy-code
+@qwen-code/qwen-code
+opencode-ai
+@anthropic-ai/claude-code

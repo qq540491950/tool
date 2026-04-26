@@ -14,15 +14,20 @@ if ! command -v npm &> /dev/null; then
     exit 1
 fi
 
-# 定义要安装的包列表
-packages=(
-    "@google/gemini-cli"
-    "@openai/codex"
-    "@tencent-ai/codebuddy-code"
-    "@qwen-code/qwen-code"
-    opencode-ai
-    @anthropic-ai/claude-code
-)
+# 读取要安装的包列表
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+packages_file="$script_dir/packages.txt"
+
+if [ ! -f "$packages_file" ]; then
+    echo "[错误] 未找到 packages.txt！"
+    exit 1
+fi
+
+packages=()
+while IFS= read -r pkg || [ -n "$pkg" ]; do
+    [ -z "$pkg" ] && continue
+    packages+=("$pkg")
+done < "$packages_file"
 
 echo "即将检查/升级以下工具："
 for pkg in "${packages[@]}"; do

@@ -17,11 +17,16 @@ if errorlevel 1 (
     exit /b 1
 )
 
-:: 定义要安装的包列表
-set "packages=@google/gemini-cli @openai/codex @tencent-ai/codebuddy-code @qwen-code/qwen-code opencode-ai @anthropic-ai/claude-code"
+:: 读取要安装的包列表
+set "packages_file=%~dp0packages.txt"
+if not exist "%packages_file%" (
+    echo [错误] 未找到 packages.txt！
+    pause
+    exit /b 1
+)
 
 echo 即将检查/升级以下工具：
-for %%p in (%packages%) do echo   - %%p
+for /f "usebackq delims=" %%p in ("%packages_file%") do echo   - %%p
 echo.
 
 :: 逐个检查并安装
@@ -30,15 +35,18 @@ set "success_count=0"
 set "skip_count=0"
 set "failed_list="
 
-for %%p in (%packages%) do (
+for /f "usebackq delims=" %%p in ("%packages_file%") do (
     set "local_ver="
     set "remote_ver="
 
     echo ----------------------------------------
     echo [检查中] %%p ...
 
-    :: 获取本地已安装版本（所有包均为 scoped，格式 @scope/name@x.y.z，取第3段）
-    for /f "tokens=3 delims=@" %%v in ('npm list -g --depth=0 2^>nul ^| findstr /C:"%%p"') do set "local_ver=%%v"
+    :: 获取本地已安装版本（匹配 package@version，兼容 scoped 和 unscoped 包）
+    for /f "delims=" %%l in ('npm list -g --depth=0 2^>nul ^| findstr /C:"%%p@"') do (
+        set "pkg_line=%%l"
+        set "local_ver=!pkg_line:*%%p@=!"
+    )
 
     :: 获取远程最新版本
     for /f %%v in ('npm view %%p version 2^>nul') do set "remote_ver=%%v"
