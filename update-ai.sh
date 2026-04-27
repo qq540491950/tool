@@ -47,7 +47,7 @@ for pkg in "${packages[@]}"; do
     echo ""
 
     # 获取本地已安装版本（sed 'x.*@' 贪婪匹配到最后一个 @，取版本号）
-    local_ver=$(npm list -g --depth=0 2>/dev/null | grep "$pkg" | sed 's/.*@//')
+    local_ver=$(npm list -g --depth=0 2>/dev/null | grep -F "$pkg@" | sed 's/.*@//')
 
     # 获取远程最新版本（失败时返回空字符串）
     remote_ver=$(npm view "$pkg" version 2>/dev/null || true)
