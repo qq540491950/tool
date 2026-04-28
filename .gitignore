@@ -1,4 +1,6 @@
 .omc/
+.playwright-mcp/
+.codebuddy/
 
 # Logs
 *.log
