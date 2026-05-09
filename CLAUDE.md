@@ -12,6 +12,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 使用 `npm view <package> version` 对比远程最新版本与全局已安装版本。
 - 跳过已是最新版的包，使用 `npm install -g` 安装缺失或过期的包，并在结束时报告成功、跳过和失败数量。
 
+## 仓库结构
+
+- `AGENTS.md` — 其他 AI 编码代理的入口，引导至本文件
+- `packages.txt` — 要升级的 npm 包列表（每行一个），添加新工具时只需编辑此文件
+- `update-ai.bat` — Windows 升级脚本
+- `update-ai.sh` — Linux/macOS 升级脚本
+- `.gitignore` — 排除本地工具目录、日志、环境文件
+
 ## 常用命令
 
 本仓库没有 package manifest、构建系统、linter 或测试套件；开发方式以脚本为主。
@@ -63,3 +71,4 @@ git diff
 - Windows 脚本通过匹配 `package@version` 并移除包名前缀来解析已安装版本，可处理 scoped 与 unscoped npm 包。
 - shell 脚本通过 `sed 's/.*@//'` 提取已安装版本，可处理 scoped 与 unscoped npm 包行，因为它取最后一个 `@` 之后的文本。
 - `.gitignore` 排除了本地 OMC 状态、日志、环境文件以及 OS/editor 临时文件。
+- Windows 脚本使用 `findstr /C:"%%p@"` 匹配本地包行，若包名存在包含关系（如 `@scope/pkg` 与 `@scope/pkg-sub`），substring 匹配可能导致错误识别版本，需注意包命名避免此类前缀重叠。
