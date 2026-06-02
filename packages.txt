@@ -3,3 +3,5 @@
 @tencent-ai/codebuddy-code
 opencode-ai
 @anthropic-ai/claude-code
+@colbymchenry/codegraph
+ccstatusline-zh

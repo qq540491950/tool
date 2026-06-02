@@ -1,4 +1,3 @@
-.omc/
 .playwright-mcp/
 .codebuddy/
 
@@ -14,3 +13,4 @@
 Thumbs.db
 *.tmp
 *.swp
+.antigravitycli/
