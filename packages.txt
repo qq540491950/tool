@@ -1,4 +1,3 @@
-@google/gemini-cli
 @openai/codex
 @tencent-ai/codebuddy-code
 opencode-ai
