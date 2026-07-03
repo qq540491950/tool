@@ -1,6 +1,7 @@
 @openai/codex
 @tencent-ai/codebuddy-code
 opencode-ai
+@oh-my-pi/pi-coding-agent
 @anthropic-ai/claude-code
 @colbymchenry/codegraph
 ccstatusline-zh
