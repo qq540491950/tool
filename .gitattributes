@@ -4,5 +4,6 @@
 # Batch scripts must use CRLF for cmd.exe compatibility
 *.bat text eol=crlf
 
-# Shared package list — LF so both bash read and bat for/f can parse it
-packages.txt text eol=lf
+# PowerShell scripts and data files — LF for cross-editor consistency
+*.ps1  text eol=lf
+*.psd1 text eol=lf
