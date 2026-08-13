@@ -19,8 +19,6 @@
         @{ name = '@openai/codex';              type = 'npm' }
         @{ name = '@tencent-ai/codebuddy-code'; type = 'npm' }
         @{ name = 'opencode-ai';               type = 'npm' }
-        # @{ name = '@oh-my-pi/pi-coding-agent'; type = 'npm' }
-        # @{ name = '@anthropic-ai/claude-code'; type = 'npm' }
         @{ name = '@colbymchenry/codegraph';   type = 'npm' }
         @{ name = 'ccstatusline-zh';           type = 'npm' }
 
@@ -36,19 +34,19 @@
 
         # --- type=binary 示例：自维护二进制（install/update 必填） ---
         @{
-            name      = 'omp'
-            type      = 'binary'
-            check     = 'omp --version'
-            install   = 'irm https://omp.sh/install.ps1 | iex'
-            update    = 'omp update'
-        }
-
-        @{
             name      = 'claude'
             type      = 'binary'
             check     = 'claude --version'
             install   = 'irm https://claude.ai/install.ps1 | iex'
             update    = 'claude update'
+        }
+
+        @{
+            name      = 'grok'
+            type      = 'binary'
+            check     = 'grok --version'
+            install   = 'irm https://x.ai/cli/install.ps1 | iex'
+            update    = 'grok update'
         }
 
         # --- type=scoop 示例 ---
