@@ -19,6 +19,7 @@
         @{ name = '@openai/codex';              type = 'npm' }
         @{ name = '@tencent-ai/codebuddy-code'; type = 'npm' }
         @{ name = 'opencode-ai';               type = 'npm' }
+        @{ name = '@earendil-works/pi-coding-agent';   type = 'npm' }
         @{ name = '@colbymchenry/codegraph';   type = 'npm' }
         @{ name = 'ccstatusline-zh';           type = 'npm' }
 
