@@ -19,7 +19,7 @@
         @{ name = '@openai/codex';              type = 'npm' }
         @{ name = '@tencent-ai/codebuddy-code'; type = 'npm' }
         @{ name = 'opencode-ai';               type = 'npm' }
-        @{ name = '@earendil-works/pi-coding-agent';   type = 'npm' }
+        # @{ name = '@earendil-works/pi-coding-agent';   type = 'npm' }
         @{ name = '@colbymchenry/codegraph';   type = 'npm' }
         @{ name = 'ccstatusline-zh';           type = 'npm' }
 
@@ -43,11 +43,11 @@
         }
 
         @{
-            name      = 'grok'
+            name      = 'agy'
             type      = 'binary'
-            check     = 'grok --version'
-            install   = 'irm https://x.ai/cli/install.ps1 | iex'
-            update    = 'grok update'
+            check     = 'agy --version'
+            install   = 'irm https://antigravity.google/cli/install.ps1 | iex'
+            update    = 'agy update'
         }
 
         # --- type=scoop 示例 ---
