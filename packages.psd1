@@ -9,14 +9,14 @@
 #
 # 合法 type：npm / pwsh-module / pwsh-script / binary / scoop / winget / cargo
 #
-# 注意：以下实配置是你日常管理的包（npm / binary 混合）。
-#       其他 5 种 type 的示例块保留在下方供查阅，未启用。
+# 注意：以下实配置是你日常管理的包（全部为 npm 全局包）。
+#       其他 type 的示例块保留在下方供查阅，未启用。
 
 @{
     packages = @(
 
         # === 你的实配置：npm 全局包（仅需 name + type） ===
-        @{ name = '@openai/codex';              type = 'npm' }
+        @{ name = '@minimax-ai/code';          type = 'npm' }
         @{ name = '@tencent-ai/codebuddy-code'; type = 'npm' }
         @{ name = 'opencode-ai';               type = 'npm' }
         # @{ name = '@earendil-works/pi-coding-agent';   type = 'npm' }
@@ -34,21 +34,6 @@
         # @{ name = 'PSFzf'; type = 'pwsh-script' }
 
         # --- type=binary 示例：自维护二进制（install/update 必填） ---
-        @{
-            name      = 'claude'
-            type      = 'binary'
-            check     = 'claude --version'
-            install   = 'irm https://claude.ai/install.ps1 | iex'
-            update    = 'claude update'
-        }
-
-        @{
-            name      = 'agy'
-            type      = 'binary'
-            check     = 'agy --version'
-            install   = 'irm https://antigravity.google/cli/install.ps1 | iex'
-            update    = 'agy update'
-        }
 
         # --- type=scoop 示例 ---
         # @{ name = 'wget'; type = 'scoop' }
