@@ -1,9 +1,8 @@
 # Shell scripts must use LF for bash compatibility
 *.sh text eol=lf
 
-# Batch scripts must use CRLF for cmd.exe compatibility
-*.bat text eol=crlf
+# Markdown docs — LF for cross-editor consistency
+*.md text eol=lf
 
-# PowerShell scripts and data files — LF for cross-editor consistency
-*.ps1  text eol=lf
-*.psd1 text eol=lf
+# Package config — LF so field parsing stays predictable
+*.conf text eol=lf
